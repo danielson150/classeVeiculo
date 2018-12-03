@@ -93,6 +93,7 @@ public class Veiculo {
 		System.out.println("Tipo de Veiculo: "+ tipoVeiculo);
 		System.out.println("Numeros de Passageiros: " + numPassageiro);
 		System.out.println("Nivel de combustivel:"+ nivelCombustivel +  "litros");
+		System.out.println("Capacidade do Tanque: " + capacidadeTanque);
 		System.out.println("Velocidade atual: "+ velocidadeAtual + "KM");
 		System.out.println("Velocidade Maxima:"+ velocidadeMax + "KM");
     }
