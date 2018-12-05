@@ -1,15 +1,15 @@
-public class Veiculo {
+class Veiculo {
 	boolean estadoInicial;
 	String marca;
 	String modelo;
 	String tipoCombustivel; //Tipo de Combustivel:(Diesel, alcool ou gasolina)
 	String tipoVeiculo; //Tipo de Veiculo:(aéreo, terrestre ou aquático)
 	int numPassageiro;
-	float capacidadeTanque; 
-	float nivelCombustivel;
-	float velocidadeAtual;
-	float velocidadeMax;
-	int cambio;
+	float capacidadeTanque = 200; 
+	float nivelCombustivel = 0;
+	float velocidadeAtual = 0;
+	float velocidadeMax = 260;
+	int cambio = 0;
 	
 	
     void Ligar() {
@@ -36,12 +36,14 @@ public class Veiculo {
     }
     
     void Acelerar() {
-    	if((estadoInicial == true) && (velocidadeAtual<velocidadeMax)) {
+    	if((estadoInicial == true) && (velocidadeAtual<velocidadeMax)&&(nivelCombustivel>0)) {
     		System.out.println("Acelerando o veiculo...");
             velocidadeAtual += 10;
+            nivelCombustivel -= 5;
+
     	}
     	else {
-    		System.out.println("Você não pode ultrapassar a velocidade máxima permitida no veiculo");
+    		System.out.println("Para acelerar, o carro deve estar ligado, velocidade não pode ser maior que a Máxima e o veiculo deve possuir combustivel");
     	}
     	
     	
@@ -50,6 +52,7 @@ public class Veiculo {
     void Freiar() {
     	if (velocidadeAtual == 0) {
     		System.out.println("O veiculo já se encontra parado");
+            this.velocidadeAtual = 0;
     	}
     	else {
     		System.out.println("Você pisou no freio...");
@@ -86,16 +89,17 @@ public class Veiculo {
     }
     
     void Mostrar_Status() {
-    	System.out.println("Estado inicial: " + estadoInicial);
+    	System.out.println("Estado do Veiculo: " + estadoInicial);
     	System.out.println("Marca: " + marca);
     	System.out.println("Modelo: " + modelo);
-	System.out.println("Tipo de Combustivel: "+ tipoCombustivel);
-	System.out.println("Tipo de Veiculo: "+ tipoVeiculo);
-	System.out.println("Numeros de Passageiros: " + numPassageiro);
-	System.out.println("Nivel de combustivel:"+ nivelCombustivel +  "litros");
-	System.out.println("Capacidade do Tanque: " + capacidadeTanque);
-	System.out.println("Velocidade atual: "+ velocidadeAtual + "KM");
-	System.out.println("Velocidade Maxima:"+ velocidadeMax + "KM");
+		System.out.println("Tipo de Combustivel: "+ tipoCombustivel);
+		System.out.println("Tipo de Veiculo: "+ tipoVeiculo);
+		System.out.println("Numeros de Passageiros: " + numPassageiro);
+		System.out.println("Nivel de combustivel:"+ nivelCombustivel +  " litros");
+		System.out.println("Capacidade do Tanque: " + capacidadeTanque);
+		System.out.println("Velocidade atual: "+ velocidadeAtual + " KM");
+		System.out.println("Velocidade Maxima:"+ velocidadeMax + " KM");
+        System.out.println("Cambio Atual:"+ this.cambio + " Marcha");
     }
   
 	
